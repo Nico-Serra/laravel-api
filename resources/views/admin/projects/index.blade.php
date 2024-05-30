@@ -25,7 +25,7 @@
                             <th scope="col" class="text-center">Site</th>
                             <th scope="col" class="text-center">Code</th>
                             <th scope="col" class="text-center">Date</th>
-                            <th scope="col" class="text-center">Actions</th>
+                            <th scope="col" class="text-center w-25">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
