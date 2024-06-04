@@ -16,11 +16,23 @@ class ProjectController extends Controller
             'projects' => $projects
         ]);
     }
+
+    public function latest()
+    {
+        $projects = Project::with('technologies', 'type')->orderByDesc('id')->take(3)->get();
+
+        return response()->json([
+            'success' => true,
+            'projects' => $projects,
+        ]);
+    }
+
+
     public function show($slug)
     {
         $projects = Project::with('technologies', 'type')->where('slug', $slug)->first();
 
-       // dd($projects);
+        // dd($projects);
 
         if ($projects) {
             return response()->json([
