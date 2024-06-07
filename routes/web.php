@@ -6,7 +6,8 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\TechnologyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Lead;
+use App\Mail\NewLeadMessage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mailable', function () {
+    $lead = Lead::find(1);
+    
+    return new NewLeadMessage($lead);
+    });
 
 
 Route::middleware(['auth', 'verified'])
